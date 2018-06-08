@@ -3,7 +3,6 @@
  
 <head>
     <meta charset="utf-8">
-
 	<title>IMU</title>
 </head>
 
@@ -13,11 +12,20 @@
     </p>
 
 	<p>
+        <b>Rx:</b> <span id="rotx"></span><br>
+        <b>Ry:</b> <span id="roty"></span><br>
+        <b>Rz:</b> <span id="rotz"></span><br>
+    </p>
+
+	
+	<p>
         <b>alpha:</b> <span id="alpha"></span><br>
         <b>beta:</b> <span id="beta"></span><br>
         <b>gamma:</b> <span id="gamma"></span><br>
     </p>
 
+	
+	
 	<p>
         Accelerometer is <b><span id="AccSupported">not</span></b> supported.
     </p>
@@ -45,6 +53,10 @@
 		var ay = document.getElementById("accy");
 		var az = document.getElementById("accz");
 
+		var rx = document.getElementById("rotx");
+		var ry = document.getElementById("roty");
+		var rz = document.getElementById("rotz");
+
 		
 		
 		if (window.DeviceOrientationEvent) {
@@ -70,6 +82,10 @@
 			ax.innerText = event.accelerationIncludingGravity.x.toFixed(3);
 			ay.innerText = event.accelerationIncludingGravity.y.toFixed(3);
 			az.innerText = event.accelerationIncludingGravity.z.toFixed(3);
+			rz.innerText = event.DeviceRotationRate.alpha.toFixed(3);
+			rx.innerText = event.DeviceRotationRate.beta.toFixed(3);
+			ry.innerText = event.DeviceRotationRate.gamma.toFixed(3);
+
 		}
 
 
